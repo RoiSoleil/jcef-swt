@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
+   <bundle id="org.eclipse.jcefswt">
+      <category name="org.eclipse.jcefswt"/>
+   </bundle>
+   <bundle id="me.friwi.jcefmaven">
+      <category name="org.eclipse.jcefswt"/>
+   </bundle>
    <category-def name="org.eclipse.jcefswt" label="JCef SWT"/>
 </site>

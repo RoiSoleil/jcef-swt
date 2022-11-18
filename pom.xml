@@ -11,6 +11,7 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>bundles/org.eclipse.jcefswt</module>
+		<module>bundles/me.friwi.jcefmaven</module>
 		<module>update-site/org.eclipse.jcefswt</module>
 	</modules>
 </project>
