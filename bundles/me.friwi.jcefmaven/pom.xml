@@ -8,7 +8,7 @@
 	</parent>
 	<groupId>me.friwi</groupId>
 	<artifactId>me.friwi.jcefmaven</artifactId>
-	<version>107.1.9.1-SNAPSHOT</version>
+	<version>107.1.9-SNAPSHOT</version>
 	<packaging>eclipse-plugin</packaging>
 	<dependencies>
 		<dependency>
