@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="org.eclipse.jcefswt.example.JCEFSWTViewPart"
+            icon="icons/cef.png"
+            id="org.eclipse.jcefswt.example.JCEFSWTView"
+            name="JCEFSWTView"
+            restorable="true">
+      </view>
+   </extension>
+
+</plugin>

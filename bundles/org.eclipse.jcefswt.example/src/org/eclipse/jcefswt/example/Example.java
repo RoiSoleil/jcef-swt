@@ -1,7 +1,9 @@
-package org.eclipse.jcefswt;
+package org.eclipse.jcefswt.example;
 
+import org.eclipse.jcefswt.JCEFSWTBrowser;
 import org.eclipse.swt.layout.FillLayout;
-import org.eclipse.swt.widgets.*;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
 
 public class Example {
 
@@ -9,8 +11,8 @@ public class Example {
     final Display display = new Display();
     final Shell shell = new Shell(display);
     shell.setText("SwtCefBrowser example");
-    SwtCefBrowser cefBrowser = new SwtCefBrowser(shell, "https://github.com/RoiSoleil/swt-cef-browser");
     shell.setLayout(new FillLayout());
+    JCEFSWTBrowser jcefswtBrowser = new JCEFSWTBrowser(shell, "https://github.com/RoiSoleil/jcefswt");
     shell.open();
     while (!shell.isDisposed()) {
       if (!display.readAndDispatch())

@@ -1,12 +1,12 @@
-package org.eclipse.jcefswt;
+package org.eclipse.jcefswt.example;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
-public class Activator extends AbstractUIPlugin {
+public class Activator  extends AbstractUIPlugin {
 
   // The plug-in ID
-  public static final String PLUGIN_ID = "org.eclipse.jcefswt"; //$NON-NLS-1$
+  public static final String PLUGIN_ID = "org.eclipse.jcefswt.example"; //$NON-NLS-1$
 
   // The shared instance
   private static Activator plugin;
