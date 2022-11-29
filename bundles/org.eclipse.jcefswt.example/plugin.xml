@@ -7,7 +7,7 @@
             class="org.eclipse.jcefswt.example.JCEFSWTViewPart"
             icon="icons/cef.png"
             id="org.eclipse.jcefswt.example.JCEFSWTView"
-            name="JCEFSWTView"
+            name="JCEF SWT Example View"
             restorable="true">
       </view>
    </extension>
