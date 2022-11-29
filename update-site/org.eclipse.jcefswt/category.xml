@@ -6,5 +6,9 @@
    <bundle id="me.friwi.jcefmaven">
       <category name="org.eclipse.jcefswt"/>
    </bundle>
-   <category-def name="org.eclipse.jcefswt" label="JCef SWT"/>
+   <bundle id="org.eclipse.jcefswt.example">
+      <category name="org.eclipse.jcefswt.example"/>
+   </bundle>
+   <category-def name="org.eclipse.jcefswt" label="JCEF SWT"/>
+   <category-def name="org.eclipse.jcefswt.example" label="JCEF SWT Example"/>
 </site>

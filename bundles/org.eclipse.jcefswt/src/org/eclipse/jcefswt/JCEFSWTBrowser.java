@@ -1,29 +1,31 @@
 package org.eclipse.jcefswt;
 
+import java.awt.Frame;
 import java.io.IOException;
 
 import org.cef.*;
 import org.cef.CefApp.CefAppState;
-import org.cef.browser.*;
+import org.cef.browser.CefBrowser;
+import org.cef.browser.CefMessageRouter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.awt.SWT_AWT;
 import org.eclipse.swt.widgets.Composite;
 
 import me.friwi.jcefmaven.*;
 
-public class SwtCefBrowser extends Composite {
+public class JCEFSWTBrowser extends Composite {
 
   private static CefApp cefApp;
   private static CefClient cefClient;
   private final CefBrowser cefBrowser;
 
-  private java.awt.Frame frame;
+  private Frame frame;
 
-  public SwtCefBrowser(Composite parent, String url) {
+  public JCEFSWTBrowser(Composite parent, String url) {
     this(parent, SWT.None, url);
   }
 
-  public SwtCefBrowser(Composite parent, int style, String url) {
+  public JCEFSWTBrowser(Composite parent, int style, String url) {
     super(parent, SWT.EMBEDDED | style);
     cefApp = initCefApp();
     cefClient = initCefClient();
@@ -104,11 +106,11 @@ public class SwtCefBrowser extends Composite {
     return cefClient;
   }
 
-  public org.cef.browser.CefBrowser getCefBrowser() {
+  public CefBrowser getCefBrowser() {
     return cefBrowser;
   }
 
-  public java.awt.Frame getFrame() {
+  public Frame getFrame() {
     return frame;
   }
 
