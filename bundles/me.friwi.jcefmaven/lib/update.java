@@ -19,30 +19,32 @@ public class update {
       return matcher.group(2);
     }).toList().get(1);
     String[] jars = currentDirectory.list((dir, name) -> name.endsWith(".jar"));
-    Pattern bundleVersionPattern = Pattern.compile("(Bundle-Version: )(.*)(.qualifier)\"");
+    Pattern bundleVersionPattern = Pattern.compile("(Bundle-Version: )(.*)(\\.qualifier)");
     File manifest = new File(currentDirectory, "../META-INF/MANIFEST.MF");
     lines = Files.readAllLines(manifest.toPath());
     List<String> newLines = new ArrayList<>();
     boolean added = false;
     for (String string : lines) {
-      if (!string.contains("lib/")) {
-        newLines.add(string);
-      } else if (bundleVersionPattern.asMatchPredicate().test(string)) {
+      if (bundleVersionPattern.asMatchPredicate().test(string)) {
         Matcher matcher = bundleVersionPattern.matcher(string);
         matcher.find();
         newLines.add(matcher.group(1) + version + matcher.group(3));
-      } else {
-        if (!added) {
-          added = true;
-          int i = 0;
-          for (String jar : jars) {
-            i++;
-            String comma = ",";
-            if (i == jars.length) {
-              comma = "";
-            }
-            newLines.add(string.substring(0, string.indexOf("/") + 1) + jar + comma);
+        continue;
+      }
+      if (!string.contains("lib/")) {
+        newLines.add(string);
+        continue;
+      }
+      if (!added) {
+        added = true;
+        int i = 0;
+        for (String jar : jars) {
+          i++;
+          String comma = ",";
+          if (i == jars.length) {
+            comma = "";
           }
+          newLines.add(string.substring(0, string.indexOf("/") + 1) + jar + comma);
         }
       }
     }
