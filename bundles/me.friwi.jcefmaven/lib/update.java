@@ -10,14 +10,27 @@ public class update {
 
   public static void main(String[] args) throws IOException {
     File currentDirectory = new File(".");
+    File pom = new File(currentDirectory, "pom.xml");
+    List<String> lines = Files.readAllLines(pom.toPath());
+    Pattern versionPattern = Pattern.compile("(.*<version>)(.*)(</version>.*)");
+    String version = lines.stream().filter(versionPattern.asMatchPredicate()).map(line -> {
+      Matcher matcher = versionPattern.matcher(line);
+      matcher.find();
+      return matcher.group(2);
+    }).toList().get(1);
     String[] jars = currentDirectory.list((dir, name) -> name.endsWith(".jar"));
+    Pattern bundleVersionPattern = Pattern.compile("(Bundle-Version: )(.*)(.qualifier)\"");
     File manifest = new File(currentDirectory, "../META-INF/MANIFEST.MF");
-    List<String> lines = Files.readAllLines(manifest.toPath());
+    lines = Files.readAllLines(manifest.toPath());
     List<String> newLines = new ArrayList<>();
     boolean added = false;
     for (String string : lines) {
       if (!string.contains("lib/")) {
         newLines.add(string);
+      } else if (bundleVersionPattern.asMatchPredicate().test(string)) {
+        Matcher matcher = bundleVersionPattern.matcher(string);
+        matcher.find();
+        newLines.add(matcher.group(1) + version + matcher.group(3));
       } else {
         if (!added) {
           added = true;
@@ -51,14 +64,6 @@ public class update {
       }
     }
     Files.write(buildProperties.toPath(), newLines);
-    File pom = new File(currentDirectory, "pom.xml");
-    lines = Files.readAllLines(pom.toPath());
-    Pattern versionPattern = Pattern.compile("(.*<version>)(.*)(</version>.*)");
-    String version = lines.stream().filter(versionPattern.asMatchPredicate()).map(line -> {
-      Matcher matcher = versionPattern.matcher(line);
-      matcher.find();
-      return matcher.group(2);
-    }).toList().get(1);
     File parentPom = new File(currentDirectory, "../pom.xml");
     lines = Files.readAllLines(parentPom.toPath());
     newLines = new ArrayList<>();
