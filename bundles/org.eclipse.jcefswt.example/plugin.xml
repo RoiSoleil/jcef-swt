@@ -11,5 +11,31 @@
             restorable="true">
       </view>
    </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="org.eclipse.jcefswt.example.GoToGoogleHandler"
+            id="org.eclipse.jcefswt.example.goToGoogleCommand"
+            name="Go to Google">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commandImages">
+      <image
+            commandId="org.eclipse.jcefswt.example.goToGoogleCommand"
+            icon="platform:/plugin/org.eclipse.ui/icons/full/etool16/search.png">
+      </image>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="toolbar:org.eclipse.jcefswt.example.JCEFSWTView">
+         <command
+               commandId="org.eclipse.jcefswt.example.goToGoogleCommand"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
 
 </plugin>

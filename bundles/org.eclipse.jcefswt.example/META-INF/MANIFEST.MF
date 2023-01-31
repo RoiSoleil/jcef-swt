@@ -3,6 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.jcefswt.example;singleton:=true
 Bundle-Version: 0.1.0.qualifier
+Import-Package: org.cef.browser
 Bundle-ClassPath: .
 Bundle-Activator: org.eclipse.jcefswt.Activator
 Bundle-Vendor: %providerName

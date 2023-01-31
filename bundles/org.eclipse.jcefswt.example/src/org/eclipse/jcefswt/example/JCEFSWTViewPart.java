@@ -21,4 +21,7 @@ public class JCEFSWTViewPart extends ViewPart {
     jcefswtBrowser.setFocus();
   }
 
+  public void setUrl(String url) {
+    jcefswtBrowser.getCefBrowser().loadURL(url);
+  }
 }
