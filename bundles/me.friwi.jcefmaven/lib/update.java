@@ -18,6 +18,9 @@ public class update {
       matcher.find();
       return matcher.group(2);
     }).toList().get(1);
+    String shortVersion = getShortVersion(version);
+    System.out.println("version=" + version);
+    System.out.println("shortVersion=" + shortVersion);
     String[] jars = currentDirectory.list((dir, name) -> name.endsWith(".jar"));
     Pattern bundleVersionPattern = Pattern.compile("(Bundle-Version: )(.*)(\\.qualifier)");
     File manifest = new File(currentDirectory, "../META-INF/MANIFEST.MF");
@@ -28,7 +31,7 @@ public class update {
       if (bundleVersionPattern.asMatchPredicate().test(string)) {
         Matcher matcher = bundleVersionPattern.matcher(string);
         matcher.find();
-        newLines.add(matcher.group(1) + version + matcher.group(3));
+        newLines.add(matcher.group(1) + shortVersion + matcher.group(3));
         continue;
       }
       if (!string.contains("lib/")) {
@@ -78,14 +81,20 @@ public class update {
         Matcher matcher = versionPattern.matcher(string);
         matcher.find();
         if (nb == 2) {
-          newLines.add(matcher.group(1) + version + "-SNAPSHOT" + matcher.group(3));
+          newLines.add(matcher.group(1) + shortVersion + "-SNAPSHOT" + matcher.group(3));
         } else if (nb == 3) {
-          newLines.add(matcher.group(1) + version + matcher.group(3));
+          newLines.add(matcher.group(1) + shortVersion + matcher.group(3));
         } else {
           newLines.add(string);
         }
       }
     }
     Files.write(parentPom.toPath(), newLines);
+  }
+
+  private static String getShortVersion(String version) {
+    String longVersion = "(.*\\..*\\..*)\\..*";
+    Matcher matcher = Pattern.compile(longVersion).matcher(version);
+    return matcher.matches() ? matcher.group(1) : version;
   }
 }
