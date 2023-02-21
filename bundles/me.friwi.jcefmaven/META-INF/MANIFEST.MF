@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: me.friwi.jcefmaven;singleton:=true
-Bundle-Version: 109.1.11.qualifier
+Bundle-Version: 110.0.25.qualifier
 Export-Package: me.friwi.jcefmaven,
  org.cef,
  org.cef.browser,
@@ -12,12 +12,12 @@ Export-Package: me.friwi.jcefmaven,
  org.cef.misc,
  org.cef.network
 Bundle-ClassPath: .,
- lib/jogl-all-v2.4.0-rc-20210111.jar,
- lib/gluegen-rt-v2.4.0-rc-20210111.jar,
  lib/commons-compress-1.21.jar,
- lib/jcefmaven-109.1.11.1.jar,
- lib/jcef-api-jcef-854af1f+cef-109.1.11+g6d4fdb2+chromium-109.0.5414.87.jar,
- lib/gson-2.10.jar
+ lib/gluegen-rt-v2.4.0-rc-20210111.jar,
+ lib/gson-2.10.jar,
+ lib/jcef-api-jcef-87476e9+cef-110.0.25+g75b1c96+chromium-110.0.5481.78.jar,
+ lib/jcefmaven-110.0.25.jar,
+ lib/jogl-all-v2.4.0-rc-20210111.jar
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-17
