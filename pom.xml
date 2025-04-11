@@ -10,8 +10,7 @@
 	<version>0.1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<modules>
-		<module>bundles/me.friwi.jcefmaven</module>
-    <module>bundles/org.eclipse.jcefswt</module>
+		<module>bundles/org.eclipse.jcefswt</module>
 		<module>bundles/org.eclipse.jcefswt.example</module>
 		<module>update-site/org.eclipse.jcefswt</module>
 	</modules>

@@ -10,7 +10,12 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- me.friwi.jcefmaven
+ me.friwi.jcefmaven,
+ me.friwi.jcef-api,
+ me.friwi.jcef-natives-windows-amd64,
+ com.google.gson,
+ org.apache.commons.commons-compress,
+ org.apache.commons.commons-io
 Automatic-Module-Name: org.eclipse.jcefswt.singleton.true
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-17
